@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="700dp"
+                    android:layout_height="650dp"
                     android:background="@drawable/gradient_color">
 
                 <ImageView
@@ -56,8 +56,8 @@
                         android:id="@+id/shapeableImageView"/>
 
                 <TextView
-                        android:text="             Games Library\n
-Save your gaming memories."
+                        android:text="Games Library\nSave your gaming memories"
+                        android:textAlignment="center"
                         android:textSize="30sp"
                         android:textColor="@color/white"
                         android:layout_width="wrap_content"
@@ -88,16 +88,15 @@ Save your gaming memories."
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/background_gradient_2"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginEnd="64dp"
+                    android:layout_marginStart="40dp"
                     >
 
                 <androidx.appcompat.widget.AppCompatButton
                         android:text="Get in"
-                        android:layout_margin="32dp"
+                        android:layout_margin="20dp"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/button2"
+                        android:id="@+id/getInButton"
                         android:background="@drawable/intro_button_background"
                         android:textColor="@color/white"
                         android:textSize="18sp"

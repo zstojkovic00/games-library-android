@@ -20,68 +20,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+            <!-- Back and Favorite Icons -->
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    tools:srcCompat="@drawable/horizon"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/constraintLayout">
-
-                <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/posterBig"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:alpha="0.1"
-                        android:scaleType="centerCrop"
-                        />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="210dp"
-                        android:layout_height="300dp"
-                        android:id="@+id/posterNormal"
-
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/posterBig"
-                        app:layout_constraintBottom_toBottomOf="@+id/posterBig"
-                        app:shapeAppearanceOverlay="@style/roundedImageRounded"
-                        />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/constraintLayout2">
 
                 <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:id="@+id/imageView8"
+                        android:id="@+id/arrowBack"
                         android:background="@drawable/bg_circle_dark"
                         android:src="@drawable/back"
                         app:tint="@color/white"
                         android:padding="8dp"
-
-
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-                        android:layout_marginEnd="342dp"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
                 <ImageView
                         android:layout_width="35dp"
@@ -92,62 +51,131 @@
                         app:tint="@color/white"
                         android:padding="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                />
-
+                        app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                    android:id="@+id/gameTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/constraintLayout2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toBottomOf="@id/gameTitle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                    android:background="@drawable/bg_shadow"
-                    >
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/constraintLayout">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        >
-                    <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="144dp"
-                            android:text="TextView"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            />
+                        android:id="@+id/gameDisplayBigImage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:alpha="0.1"
+                        android:scaleType="centerCrop"/>
 
-                    <TextView
-                            android:id="@+id/textView11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="144dp"
-                            android:text="TextView"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textView12"
-                            />
-
-                    <TextView
-                            android:id="@+id/textView12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="144dp"
-                            android:text="TextView"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textView11"
-                            />
+                <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:id="@+id/gameDisplayImage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/gameDisplayBigImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/gameDisplayBigImage"
+                        app:shapeAppearanceOverlay="@style/roundedImageRounded"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/bg_shadow"
+                    android:layout_marginTop="20dp">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                        android:id="@+id/gameDescriptionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="Game Description"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_margin="8dp"/>
+
+                <TextView
+                        android:id="@+id/gameDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/gameDescriptionLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_margin="8dp"/>
+
+                <TextView
+                        android:id="@+id/gameReleasedDateLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="Release Date"
+                        app:layout_constraintTop_toBottomOf="@id/gameDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_margin="8dp"/>
+
+                <TextView
+                        android:id="@+id/gameReleasedDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/gameReleasedDateLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_margin="8dp"/>
+
+                <TextView
+                        android:id="@+id/gamePlaytimeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="Average time to beat game"
+                        app:layout_constraintTop_toBottomOf="@id/gameReleasedDate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_margin="8dp"/>
+
+                <TextView
+                        android:id="@+id/gamePlaytime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/gamePlaytimeLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_margin="8dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

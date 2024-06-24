@@ -2,6 +2,7 @@ package com.example.games_library_android.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.games_library_android.R;
 import com.example.games_library_android.activity.GameDisplayActivity;
-import com.example.games_library_android.domain.Games;
+import com.example.games_library_android.database.model.Games;
 import org.jetbrains.annotations.NotNull;
 
 public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> {
-
     Games games;
     Context context;
-
     public GamesAdapter(Games games) {
         this.games = games;
     }
-
     @NonNull
     @NotNull
     @Override
@@ -46,7 +44,9 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
         viewHolder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(viewHolder.itemView.getContext(), GameDisplayActivity.class);
-            intent.putExtra("id", games.getResults().get(i).getId());
+            int id = games.getResults().get(i).getId();
+            intent.putExtra("id", id);
+            Log.d("GamesAdapter", "GAME ID: " + id);
             viewHolder.itemView.getContext().startActivity(intent);
         });
 

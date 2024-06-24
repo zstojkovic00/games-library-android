@@ -1,8 +1,8 @@
 package com.example.games_library_android.network;
 
 import android.util.Log;
-import com.example.games_library_android.domain.Game;
-import com.example.games_library_android.domain.Games;
+import com.example.games_library_android.database.model.Game;
+import com.example.games_library_android.database.model.Games;
 import com.example.games_library_android.utils.Environment;
 import com.fasterxml.jackson.core.type.TypeReference;
 import okhttp3.Request;
@@ -12,8 +12,6 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.List;
 
 public class RawgApiService extends NetworkConfig {
 
@@ -26,7 +24,18 @@ public class RawgApiService extends NetworkConfig {
     public Games getGames(String criteria, String pageSize) {
         String query = createQuery(criteria, pageSize);
         String url = BASE_URL + "?key=" + API_KEY + query;
+        return fetchData(url, new TypeReference<Games>() {
+        });
+    }
 
+    public Game getGameById(int id) {
+        String url = BASE_URL + "/" + id + "?key=" + API_KEY;
+        return fetchData(url, new TypeReference<Game>() {
+        });
+    }
+
+
+    private <T> T fetchData(String url, TypeReference<T> typeReference) {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -38,17 +47,17 @@ public class RawgApiService extends NetworkConfig {
                 throw new IOException("Unexpected code " + response);
             }
             if (response.body() != null) {
-                return mapper.readValue(response.body().string(), new TypeReference<>() {
-                });
+                return mapper.readValue(response.body().string(), typeReference);
             } else {
                 Log.e(TAG, "Response body is null");
-                return (Games) Collections.emptyList();
+                return null;
             }
         } catch (IOException e) {
-            Log.e(TAG, "Error fetching games", e);
-            return (Games) Collections.emptyList();
+            Log.e(TAG, "Error fetching data", e);
+            return null;
         }
     }
+
 
     private static String createQuery(String criteria, String pageSize) {
         LocalDateTime currentTime = LocalDateTime.now();

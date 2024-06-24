@@ -1,8 +1,7 @@
-package com.example.games_library_android.domain;
+package com.example.games_library_android.database.model;
 
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.List;
 
 

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.games_library_android.R;
 import com.example.games_library_android.adapter.GamesAdapter;
-import com.example.games_library_android.domain.Games;
+import com.example.games_library_android.database.model.Games;
 import com.example.games_library_android.network.RawgApiService;
 
 public class MainActivity extends AppCompatActivity {
