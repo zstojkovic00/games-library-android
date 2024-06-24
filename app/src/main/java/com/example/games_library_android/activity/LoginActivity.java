@@ -1,6 +1,7 @@
 package com.example.games_library_android.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.games_library_android.R;
 import com.example.games_library_android.database.UserRepository;
+import com.example.games_library_android.database.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,10 +40,15 @@ public class LoginActivity extends AppCompatActivity {
             if (usernameText.isEmpty() || passwordText.isEmpty()) {
                 Toast.makeText(this, "Username and password cannot be empty", Toast.LENGTH_SHORT).show();
             } else {
-                boolean userExists = userRepository.checkIfUserExists(usernameText, passwordText);
-                if (userExists) {
+                User user = userRepository.checkIfUserExists(usernameText, passwordText);
+                if (user != null) {
+                    SharedPreferences prefs = getApplicationContext().getSharedPreferences("preferences", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putInt("userId", user.getId());
+                    editor.apply();
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this, MainActivity.class));
+
                 } else {
                     Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }

@@ -20,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <!-- Back and Favorite Icons -->
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -33,7 +32,7 @@
                 <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:id="@+id/arrowBack"
+                        android:id="@+id/arrowBackCompletedGames"
                         android:background="@drawable/bg_circle_dark"
                         android:src="@drawable/back"
                         app:tint="@color/white"
@@ -45,11 +44,10 @@
                 <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:id="@+id/imageView9"
+                        android:id="@+id/completedGamesTrophy"
                         android:background="@drawable/bg_circle_dark"
-                        android:src="@drawable/fav"
+                        android:src="@drawable/trophy_empty"
                         app:tint="@color/white"
-                        android:padding="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>

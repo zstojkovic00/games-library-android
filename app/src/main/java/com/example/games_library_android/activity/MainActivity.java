@@ -1,7 +1,9 @@
 package com.example.games_library_android.activity;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUpcomingGames, recyclerViewNewGames;
     private ProgressBar loadingUpcomingGames, loadingNewGames;
     private RawgApiService rawgApiService;
+    private ImageView completedGames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         initView();
         new Thread(() -> fetchGames("upcoming-games", recyclerViewUpcomingGames, loadingUpcomingGames)).start();
         new Thread(() -> fetchGames("new-games", recyclerViewNewGames, loadingNewGames)).start();
+
+        completedGames.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CompletedGamesActivity.class);
+            startActivity(intent);
+        });
+
+
     }
 
     private void initView() {
@@ -39,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadingUpcomingGames = findViewById(R.id.loadingUpcomingGames);
         loadingNewGames = findViewById(R.id.loadingNewGames);
+        completedGames = findViewById(R.id.completedGames);
     }
 
     private void fetchGames(String criteria, RecyclerView recyclerView, ProgressBar progressBar) {

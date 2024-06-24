@@ -8,7 +8,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         tools:context=".activity.MainActivity"
-        android:background="@color/main_background">
+        android:background="@color/main_background">S
 
     <ScrollView
             android:layout_width="match_parent"
@@ -151,7 +151,7 @@
         <com.google.android.material.bottomappbar.BottomAppBar
                 android:id="@+id/app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:backgroundTint="#282f32">
 
             <LinearLayout
@@ -159,33 +159,15 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="25dp"
-                        android:id="@+id/imageView2"
-                        android:layout_weight="1"
-                        android:src="@drawable/btn_3"
-                        android:layout_margin="8dp"
-                        />
 
                 <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="22dp"
-                        android:id="@+id/imageView3"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        android:src="@drawable/btn_2"
-
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:id="@+id/completedGames"
+                        android:src="@drawable/trophy_empty"
                         />
 
-                <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="25dp"
-                        android:id="@+id/imageView4"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        android:src="@drawable/btn_4"
-                        />
+
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
