@@ -34,7 +34,7 @@
                         android:layout_height="35dp"
                         android:id="@+id/arrowBackCompletedGames"
                         android:background="@drawable/xml_bg_circle_dark"
-                        android:src="@drawable/back"
+                        android:src="@drawable/img_arrow_back"
                         app:tint="@color/white"
                         android:padding="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
