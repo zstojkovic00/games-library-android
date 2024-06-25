@@ -25,6 +25,9 @@
                 android:name=".activity.LoginActivity"
                 android:exported="false"/>
         <activity
+                android:name=".activity.SearchGamesActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".activity.IntroActivity"
                 android:exported="true">
             <intent-filter>

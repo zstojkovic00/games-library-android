@@ -76,6 +76,11 @@ public class GameRepository extends GameLibraryDatabase {
         return userGames;
     }
 
+    public void removeGameFromUser(int userId, int gameId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("user_games", "user_id=? AND game_id=?", new String[]{String.valueOf(userId), String.valueOf(gameId)});
+        db.close();
+    }
 }
 
 

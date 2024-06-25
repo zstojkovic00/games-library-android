@@ -52,12 +52,16 @@ public class GameDisplayActivity extends AppCompatActivity {
 
         completedGamesTrophy = findViewById(R.id.completedGamesTrophy);
         completedGamesTrophy.setOnClickListener(v -> {
-            if (game != null && !gameRepository.isGameAlreadyAdded(userId, gameId)) {
-                gameRepository.addGameToUser(userId, game);
-                completedGamesTrophy.setImageResource(R.drawable.trophy_full);
-                Toast.makeText(this, "Game added to completed games", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Unsuccessfuly saved game or game already added", Toast.LENGTH_SHORT).show();
+            if (game != null) {
+                if (gameRepository.isGameAlreadyAdded(userId, gameId)) {
+                    gameRepository.removeGameFromUser(userId, gameId);
+                    completedGamesTrophy.setImageResource(R.drawable.trophy_empty);
+                    Toast.makeText(this, "Game removed from completed games", Toast.LENGTH_SHORT).show();
+                } else {
+                    gameRepository.addGameToUser(userId, game);
+                    completedGamesTrophy.setImageResource(R.drawable.trophy_full);
+                    Toast.makeText(this, "Game added to completed games", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

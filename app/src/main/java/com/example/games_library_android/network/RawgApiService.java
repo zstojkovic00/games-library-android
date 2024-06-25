@@ -34,6 +34,12 @@ public class RawgApiService extends NetworkConfig {
         });
     }
 
+    public Games searchGames(String searchQuery) {
+        String url = BASE_URL + "?search=" + searchQuery + "&search_precise&key=" + API_KEY;
+        return fetchData(url, new TypeReference<Games>() {
+        });
+    }
+
 
     private <T> T fetchData(String url, TypeReference<T> typeReference) {
         Request request = new Request.Builder()
@@ -81,4 +87,6 @@ public class RawgApiService extends NetworkConfig {
         }
         return query;
     }
+
+
 }

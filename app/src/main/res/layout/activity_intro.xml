@@ -58,7 +58,7 @@
                 <TextView
                         android:text="Games Library\nSave your gaming memories"
                         android:textAlignment="center"
-                        android:textSize="30sp"
+                        android:textSize="27sp"
                         android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -76,7 +76,8 @@
                         android:id="@+id/textView3"
                         android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:text="Create a collection of all the games you've completed.\n             Your gaming adventure, all in one place."
+                        android:textAlignment="center"
+                        android:text="Create a collection of all the games you've completed.\nYour gaming adventure, all in one place."
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

@@ -22,6 +22,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
     public GamesAdapter(Games games) {
         this.games = games;
     }
+
     @NonNull
     @NotNull
     @Override

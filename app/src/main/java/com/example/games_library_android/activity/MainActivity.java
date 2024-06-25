@@ -3,6 +3,7 @@ package com.example.games_library_android.activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar loadingUpcomingGames, loadingNewGames;
     private RawgApiService rawgApiService;
     private ImageView completedGames;
+    private EditText editTextSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,21 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         new Thread(() -> fetchGames("upcoming-games", recyclerViewUpcomingGames, loadingUpcomingGames)).start();
-        new Thread(() -> fetchGames("new-games", recyclerViewNewGames, loadingNewGames)).start();
+        new Thread(() -> fetchGames("popular-games", recyclerViewNewGames, loadingNewGames)).start();
 
         completedGames.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CompletedGamesActivity.class);
+            Intent intent = new Intent(MainActivity.this, CompletedGamesActivity.class);
             startActivity(intent);
         });
 
-
+        editTextSearch.setOnClickListener(v -> {
+            String searchText = editTextSearch.getText().toString().trim();
+            if(!searchText.isEmpty()){
+                Intent intent = new Intent(MainActivity.this, SearchGamesActivity.class);
+                intent.putExtra("searchQuery", searchText);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
@@ -50,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         loadingUpcomingGames = findViewById(R.id.loadingUpcomingGames);
         loadingNewGames = findViewById(R.id.loadingNewGames);
         completedGames = findViewById(R.id.completedGames);
+        editTextSearch = findViewById(R.id.searchText);
     }
 
     private void fetchGames(String criteria, RecyclerView recyclerView, ProgressBar progressBar) {
