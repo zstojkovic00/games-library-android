@@ -17,7 +17,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/gradient_color"
+            android:background="@drawable/xml_gradient_color"
             android:id="@+id/scrollView2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="1.0">
@@ -40,8 +40,8 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:hint="Search games..."
-                    android:drawableStart="@drawable/search"
-                    android:background="@drawable/search_edit_background"
+                    android:drawableStart="@drawable/img_search"
+                    android:background="@drawable/xml_search_edit_background"
                     android:id="@+id/searchText"/>
 
             <TextView
@@ -163,7 +163,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:id="@+id/completedGames"
-                        android:src="@drawable/trophy_empty"
+                        android:src="@drawable/img_trophy_empty"
                         />
 
 

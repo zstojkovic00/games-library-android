@@ -14,7 +14,7 @@
     </style>
     <style name="Floating" parent="Widget.Design.FloatingActionButton">
         <item name="android:foreground" >
-            @drawable/floating_background
+            @drawable/xml_floating_background
         </item>
     </style>
 </resources>

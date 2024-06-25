@@ -2,7 +2,6 @@ package com.example.games_library_android.activity;
 
 import android.content.SharedPreferences;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,11 +54,11 @@ public class GameDisplayActivity extends AppCompatActivity {
             if (game != null) {
                 if (gameRepository.isGameAlreadyAdded(userId, gameId)) {
                     gameRepository.removeGameFromUser(userId, gameId);
-                    completedGamesTrophy.setImageResource(R.drawable.trophy_empty);
+                    completedGamesTrophy.setImageResource(R.drawable.img_trophy_empty);
                     Toast.makeText(this, "Game removed from completed games", Toast.LENGTH_SHORT).show();
                 } else {
                     gameRepository.addGameToUser(userId, game);
-                    completedGamesTrophy.setImageResource(R.drawable.trophy_full);
+                    completedGamesTrophy.setImageResource(R.drawable.img_trophy_full);
                     Toast.makeText(this, "Game added to completed games", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -87,7 +86,7 @@ public class GameDisplayActivity extends AppCompatActivity {
                             .into(gameImage);
 
                     if (gameRepository.isGameAlreadyAdded(userId, gameId)) {
-                        completedGamesTrophy.setImageResource(R.drawable.trophy_full);
+                        completedGamesTrophy.setImageResource(R.drawable.img_trophy_full);
                     }
                 }
             });

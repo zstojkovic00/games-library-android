@@ -35,7 +35,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:id="@+id/arrowBackGames"
-                        android:background="@drawable/bg_circle_dark"
+                        android:background="@drawable/xml_bg_circle_dark"
                         android:src="@drawable/back"
                         app:tint="@color/white"
                         android:padding="8dp"
